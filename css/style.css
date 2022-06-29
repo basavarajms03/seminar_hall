@@ -1,0 +1,17 @@
+.page-title {
+    font-size: 18px;
+}
+
+.page-subTitle {
+    font-size: 14px;
+}
+
+.uploaded-images {
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+}
+
+.slider-img {
+    height: 400px;
+}
