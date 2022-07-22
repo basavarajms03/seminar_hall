@@ -52,7 +52,7 @@ if (isset($_POST['submit'])) {
 ?>
         <script>
             alert('Logged in successfully!');
-            document.location = 'admin_home.php';
+            document.location = './departments.php';
         </script>
     <?php
     } else {
