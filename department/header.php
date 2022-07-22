@@ -22,6 +22,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="./../admin/"><span class="sr-only">(current)</span>Admin Login</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./../students/">students Login</a>
+                </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="./">Department Login</a>
                 </li>

@@ -60,11 +60,11 @@ $seminar_hall_count = mysqli_num_rows($result);
                         ?>
                             <tr>
                                 <th scope="row"><?php echo $count; ?></th>
-                                <td><?php echo $row[14]; ?></td>
+                                <td><?php echo $row[15]; ?></td>
                                 <td><?php echo $row[3]; ?></td>
                                 <td><?php echo $row[4]; ?></td>
-                                <td><?php echo $row[6]; ?></td>
-                                <td><?php echo $row[7]; ?></td>
+                                <td><?php echo date_format(date_create($row[6]), "Y-m-d h:i A"); ?></td>
+                                <td><?php echo date_format(date_create($row[7]), "Y-m-d h:i A"); ?></td>
                                 <td><a href="./view_seminar_hall.php?id=<?php echo $row[0]; ?>" class="badge badge-success">View</a></td>
                             </tr>
                         <?php

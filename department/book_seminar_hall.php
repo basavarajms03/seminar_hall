@@ -113,13 +113,16 @@ if (isset($_GET['check_available'])) {
                             <input type="datetime-local" value="<?php echo  $_GET['to']; ?>" class="form-control" name="to" id="to" <?php echo $booking_hall_count === 0 ? "disabled" : '' ?> required>
                         </div>
                     </div>
-                </div>
-                <div class="row mt-3">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="guests">Guests Invited (Emails)</label>
-                            <input type="text" class="form-control" name="guests" id="guests" placeholder="Enter Guests Invited" required>
-                            <small class="text-muted font-weight-bold">Enter emails with comma separated</small>
+                            <label for="accessories">Accessories</label>
+                            <select class="form-control" name="accessories[]" id="accessories" placeholder="Enter Title" multiple>
+                                <option value="Tables">Tables</option>
+                                <option value="Chairs">Chairs</option>
+                                <option value="Projector">Projector</option>
+                                <option value="System">System</option>
+                                <option value="Water Bottles">Water Bottles</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -154,7 +157,7 @@ if (isset($_POST['submit'])) {
     $organizerName = $_POST['organizer'];
     $from = $_GET['from'];
     $to = $_GET['to'];
-    $guests = $_POST['guests'];
+    $accessories = implode(',', $_POST['accessories']);
     $description = $_POST['description'];
 
     $result = mysqli_query($con, "SELECT * FROM `bookings` WHERE `seminar_hall_id` = '$seminar_hall_id' and `from_date` = '$from' and `to_date`='$to'") or die(mysqli_error($con));
@@ -167,7 +170,11 @@ if (isset($_POST['submit'])) {
         </script>
         <?php
     } else {
-        $insert_query = "INSERT INTO `bookings` (`id`, `deptId`, `seminar_hall_id`, `title`, `subTitle`, `organizerName`, `from_date`, `to_date`, `guests`, `description`, `status`) VALUES (NULL, '$deptId', '$seminar_hall_id', '$title', '$subject', '$organizerName', '$from', '$to', '$guests', '$description', 'Approved')";
+        $insert_query = "INSERT INTO `bookings` 
+        (`id`, `deptId`, `seminar_hall_id`, `title`, `subTitle`, `organizerName`, `from_date`,
+         `to_date`, `description`, `status`, `accessories`) 
+         VALUES (NULL, '$deptId', '$seminar_hall_id', '$title', '$subject', '$organizerName', '$from', 
+         '$to', '$description', 'Approved', '$accessories')";
         if (mysqli_query($con, $insert_query)) {
         ?>
             <script>
@@ -179,7 +186,7 @@ if (isset($_POST['submit'])) {
         ?>
             <script>
                 alert("Something went wrong!");
-                document.location = './seminar_hall.php';
+                // document.location = './seminar_hall.php';
             </script>
 <?php
             die(mysqli_error($con));

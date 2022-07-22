@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
 
     $result = mysqli_query($con, "SELECT * FROM `seminar_halls` WHERE `hall_name`='$seminarHallName'") or die(mysqli_error($con));
     $seminar_hall_count = mysqli_num_rows($result);
-    if ($seminar_hall_count > 0) {
+    if ($seminar_hall_count > 0 && $seminarHallName !== $row[1]) {
 ?>
         <script>
             alert('Seminar hall is already created!');

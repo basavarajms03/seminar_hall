@@ -78,11 +78,11 @@ $feedback_count = mysqli_num_rows($feedback_result);
                 <div class="row mt-3">
                     <div class="col-md-4">
                         <p class="text-title mb-1 font-weight-bold text-secondary">From</p>
-                        <p class="text-muted m-0"><?php echo $row[6]; ?></p>
+                        <p class="text-muted m-0"><?php echo date_format(date_create($row[6]), "Y-m-d h:i A"); ?></p>
                     </div>
                     <div class="col-md-4">
                         <p class="text-title mb-1 font-weight-bold text-secondary">To</p>
-                        <p class="text-muted m-0"><?php echo $row[7]; ?></p>
+                        <p class="text-muted m-0"><?php echo date_format(date_create($row[7]), "Y-m-d h:i A"); ?></p>
                     </div>
                 </div>
                 <div class="row mt-3">
@@ -93,8 +93,8 @@ $feedback_count = mysqli_num_rows($feedback_result);
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12">
-                        <p class="text-title mb-1 font-weight-bold text-secondary">Guests</p>
-                        <p class="text-muted m-0"><?php echo $row[8]; ?></p>
+                        <p class="text-title mb-1 font-weight-bold text-secondary">Accessories</p>
+                        <p class="text-muted m-0"><?php echo $row[13]; ?></p>
                     </div>
                 </div>
                 <div class="row mt-3">

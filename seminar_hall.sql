@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   `images` text,
   `cancellation_reason` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5;
 
 --
 -- Dumping data for table `bookings`
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `departments` (
   `department_name` varchar(100) NOT NULL,
   PRIMARY KEY (`deptId`) USING BTREE,
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7;
 
 --
 -- Dumping data for table `departments`
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `feedback` (
   `feedback` text NOT NULL,
   `student_id` varchar(11) NOT NULL,
   `updated_value` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM;
 
 -- --------------------------------------------------------
 
@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `seminar_halls` (
   `hall_name` varchar(100) NOT NULL,
   `hall_description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6;
 
 --
 -- Dumping data for table `seminar_halls`
@@ -124,7 +124,7 @@ CREATE TABLE IF NOT EXISTS `students_list` (
   `deptId` varchar(100) NOT NULL,
   `sem` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6;
 
 -- --------------------------------------------------------
 
@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(100) NOT NULL DEFAULT '12345',
   PRIMARY KEY (`id`),
   KEY `users_ibfk_1` (`deptId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5;
 
 --
 -- Dumping data for table `users`

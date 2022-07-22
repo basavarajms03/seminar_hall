@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
@@ -16,17 +17,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="./../index.php">Home</a>
-                </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="./index.php"><span class="sr-only">(current)</span>Admin Login</a>
+                    <a class="nav-link" href="#">Seminars <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./../students/">students Login</a>
+                    <a class="nav-link" href="./profile.php">Profile <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./../department/index.php">Department Login</a>
+                    <a class="nav-link" href="./logout.php">Logout <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>

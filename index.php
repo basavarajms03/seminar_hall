@@ -2,9 +2,14 @@
 
 include('./db/dbcon.php');
 
+$todayDate = Date('Y-m-d');
 $result = mysqli_query($con, "SELECT * FROM `bookings` b, `departments` d, `seminar_halls` s
-          WHERE b.deptId = d.deptId and b.seminar_hall_id = s.id") or die(mysqli_error($con));
+          WHERE b.deptId = d.deptId and b.seminar_hall_id = s.id and b.from_date > '$todayDate'") or die(mysqli_error($con));
 $count = mysqli_num_rows($result);
+
+$completed_result = mysqli_query($con, "SELECT * FROM `bookings` b, `departments` d, `seminar_halls` s
+          WHERE b.deptId = d.deptId and b.seminar_hall_id = s.id and b.from_date < '$todayDate'") or die(mysqli_error($con));
+$completed_count = mysqli_num_rows($completed_result);
 ?>
 
 <!DOCTYPE html>
@@ -50,13 +55,16 @@ $count = mysqli_num_rows($result);
                     <a class="nav-link" href="./index.php#about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./index.php#seminars">Seminars</a>
+                    <a class="nav-link" href="./index.php#upcoming_seminars">Upcoming Seminars</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./admin/index.php">Admin Login</a>
+                    <a class="nav-link" href="./admin/">Admin Login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./department/index.php">Department Login</a>
+                    <a class="nav-link" href="./students/">Student Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./department/">Department Login</a>
                 </li>
             </ul>
         </div>
@@ -104,13 +112,13 @@ $count = mysqli_num_rows($result);
                 est obcaecati tempore nam debitis rerum.
             </div>
         </div>
-        <div class="mt-5 mb-5" id="seminars">
-            <h4 class="text-center font-weight-bold text-black">Seminars</h4>
+        <div class="mt-5 mb-5" id="upcoming_seminars">
+            <h4 class="text-center font-weight-bold text-black">Upcoming Seminars</h4>
             <?php
             if ($count === 0) {
             ?>
                 <div class="text-center">
-                    <img src="./../images/no-data.png" alt="No Data" width="300px">
+                    <img src="./images/no-data.png" alt="No Data" width="300px">
                     <p class="text-muted font-weight-bold m-0">No seminar hall bookings found</p>
                     <small class="text-danger font-weight-bold">Book seminar hall to display over here.</small>
                 </div>
@@ -125,16 +133,14 @@ $count = mysqli_num_rows($result);
                         <div class="col-md-4 mt-3">
                             <div class="card">
                                 <div class="card-header font-weight-bold text-success">
-                                    <?php echo $row[17]; ?>
+                                    <?php echo $row[18]; ?>
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title mb-0"><?php echo $row[3]; ?></h5>
                                     <small class="card-subtitle font-weight-bold text-muted"><?php echo $row[4]; ?></small><br>
-                                    <small class="card-subtitle font-weight-bold text-danger"><?php echo $row[6]; ?> - <?php echo $row[7]; ?></small>
+                                    <small class="card-subtitle font-weight-bold text-danger"><?php echo date_format(date_create($row[6]), "Y-m-d h:i A"); ?> - <?php echo date_format(date_create($row[7]), "Y-m-d h:i A"); ?></small>
+                                    <small class="card-subtitle font-weight-bold text-warning"><?php echo $row[16]; ?></small>
                                     <p class="card-text mt-3"><?php echo $row[9]; ?></p>
-                                    <p class="text-right m-0">
-                                        <a href="./students/feedback.php?id=<?php echo $row[0]; ?>" class="btn btn-sm btn-primary">Student Feedback</a>
-                                    </p>
                                 </div>
                             </div>
                         </div>
