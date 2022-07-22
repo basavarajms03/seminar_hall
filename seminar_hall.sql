@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 29, 2022 at 05:59 AM
+-- Generation Time: Jul 22, 2022 at 04:16 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -37,20 +37,14 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   `organizerName` varchar(100) NOT NULL,
   `from_date` datetime NOT NULL,
   `to_date` datetime NOT NULL,
-  `guests` text NOT NULL,
+  `guests` text,
   `description` text NOT NULL,
   `status` varchar(30) NOT NULL DEFAULT 'Pending',
   `images` text,
   `cancellation_reason` text,
+  `accessories` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5;
-
---
--- Dumping data for table `bookings`
---
-
-INSERT INTO `bookings` (`id`, `deptId`, `seminar_hall_id`, `title`, `subTitle`, `organizerName`, `from_date`, `to_date`, `guests`, `description`, `status`, `images`, `cancellation_reason`) VALUES
-(4, 123, 5, 'Seminar Title', 'Subject of the seminar', 'Organizer Name', '2022-06-27 20:00:00', '2022-06-27 21:00:00', 'karthik@gmail.com, seema@gmail.com', 'Description is added', 'Approved', 'uploads/unnamed.jpg', NULL);
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -65,14 +59,7 @@ CREATE TABLE IF NOT EXISTS `departments` (
   `department_name` varchar(100) NOT NULL,
   PRIMARY KEY (`deptId`) USING BTREE,
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7;
-
---
--- Dumping data for table `departments`
---
-
-INSERT INTO `departments` (`id`, `deptId`, `department_name`) VALUES
-(6, 123, 'Computer Science');
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -86,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `feedback` (
   `feedback` text NOT NULL,
   `student_id` varchar(11) NOT NULL,
   `updated_value` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=MyISAM;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -100,14 +87,7 @@ CREATE TABLE IF NOT EXISTS `seminar_halls` (
   `hall_name` varchar(100) NOT NULL,
   `hall_description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6;
-
---
--- Dumping data for table `seminar_halls`
---
-
-INSERT INTO `seminar_halls` (`id`, `hall_name`, `hall_description`) VALUES
-(5, 'Seminar Hall Name', 'Just for the information');
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -123,8 +103,10 @@ CREATE TABLE IF NOT EXISTS `students_list` (
   `student_email` varchar(100) NOT NULL,
   `deptId` varchar(100) NOT NULL,
   `sem` int(11) NOT NULL,
+  `password` varchar(100) NOT NULL DEFAULT '12345',
+  `mobile_number` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -139,14 +121,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(100) NOT NULL DEFAULT '12345',
   PRIMARY KEY (`id`),
   KEY `users_ibfk_1` (`deptId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `deptId`, `password`) VALUES
-(4, 123, '12345');
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Constraints for dumped tables
