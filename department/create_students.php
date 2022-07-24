@@ -95,14 +95,9 @@ if (isset($_POST['submit'])) {
                 alert('Student has been created successfully!');
                 document.location = './students_list.php';
             </script>
-        <?php
-        } else {
-        ?>
-            <script>
-                alert('Something went wrong!');
-                // document.location = './seminar_hall.php';
-            </script>
 <?php
+        } else {
+            die(mysqli_error($con));
         }
     }
 }

@@ -55,6 +55,10 @@ $feedback_count = mysqli_num_rows($feedback_result);
                         <p class="text-muted m-0"><?php echo $row[3]; ?></p>
                     </div>
                     <div class="col-md-4">
+                        <p class="text-title mb-1 font-weight-bold text-secondary">Event Type</p>
+                        <p class="text-muted m-0"><?php echo $row[14]; ?></p>
+                    </div>
+                    <div class="col-md-4">
                         <?php
                         if ($row[12]) {
                         ?>
@@ -86,10 +90,20 @@ $feedback_count = mysqli_num_rows($feedback_result);
                     </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12">
+                    <div class="col-md-4">
                         <p class="text-title mb-1 font-weight-bold text-danger">Seminar Hall Name</p>
-                        <p class="m-0 text-success"><?php echo $row[14]; ?></p>
+                        <p class="m-0 text-success font-weight-bold"><?php echo $row[16]; ?></p>
                     </div>
+                    <?php
+                    if ($row[14] === 'Guest Lecturer') {
+                    ?>
+                        <div class="col-md-4">
+                            <p class="text-title mb-1 font-weight-bold text-danger">Guest Lecturer Name</p>
+                            <p class="m-0 text-success font-weight-bold"><?php echo $row[8]; ?></p>
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12">

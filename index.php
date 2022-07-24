@@ -133,13 +133,20 @@ $completed_count = mysqli_num_rows($completed_result);
                         <div class="col-md-4 mt-3">
                             <div class="card">
                                 <div class="card-header font-weight-bold text-success">
-                                    <?php echo $row[18]; ?>
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <?php echo $row[19]; ?> <?php echo $row[8] ? '- ' . $row[8] : ''; ?>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <a href="./seminar_details.php?id=<?php echo $row[0]; ?>" class="badge badge-primary">View</a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title mb-0"><?php echo $row[3]; ?></h5>
                                     <small class="card-subtitle font-weight-bold text-muted"><?php echo $row[4]; ?></small><br>
                                     <small class="card-subtitle font-weight-bold text-danger"><?php echo date_format(date_create($row[6]), "Y-m-d h:i A"); ?> - <?php echo date_format(date_create($row[7]), "Y-m-d h:i A"); ?></small>
-                                    <small class="card-subtitle font-weight-bold text-warning"><?php echo $row[16]; ?></small>
+                                    <p><small class="card-subtitle font-weight-bold text-warning"><?php echo $row[17]; ?> - <?php echo $row[14]; ?></small></p>
                                     <p class="card-text mt-3"><?php echo $row[9]; ?></p>
                                 </div>
                             </div>

@@ -129,6 +129,29 @@ if (isset($_GET['check_available'])) {
                 <div class="row mt-3">
                     <div class="col-md-4">
                         <div class="form-group">
+                            <label for="eventType">Event Type</label>
+                            <select class="form-control" name="eventType" id="eventType" required>
+                                <option value="">-- Select --</option>
+                                <option value="Seminar">Seminar</option>
+                                <option value="Guest Lecturer">Guest Lecturer</option>
+                                <option value="Workshop">Workshop</option>
+                                <option value="Training">Training</option>
+                                <option value="Meeting">Meeting</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="guestLecturerName">Guest Lecturer Name</label>
+                            <input type="text" class="form-control" name="guestLecturerName" id="guestLecturerName" placeholder="Enter Guest Lecturer Name" required>
+                            <small class="text-muted">Enter the name of the lecturer or N/A.</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-4">
+                        <div class="form-group">
                             <label for="description">Description</label>
                             <textarea type="text" cols="6" rows="6" class="form-control" name="description" id="description" placeholder="Enter Description" required></textarea>
                         </div>
@@ -159,6 +182,8 @@ if (isset($_POST['submit'])) {
     $to = $_GET['to'];
     $accessories = implode(',', $_POST['accessories']);
     $description = $_POST['description'];
+    $guests = $_POST['guestLecturerName'];
+    $eventType = $_POST['eventType'];
 
     $result = mysqli_query($con, "SELECT * FROM `bookings` WHERE `seminar_hall_id` = '$seminar_hall_id' and `from_date` = '$from' and `to_date`='$to'") or die(mysqli_error($con));
     $booking_hall_count = mysqli_num_rows($result);
@@ -172,9 +197,9 @@ if (isset($_POST['submit'])) {
     } else {
         $insert_query = "INSERT INTO `bookings` 
         (`id`, `deptId`, `seminar_hall_id`, `title`, `subTitle`, `organizerName`, `from_date`,
-         `to_date`, `description`, `status`, `accessories`) 
+         `to_date`, `description`, `status`, `accessories`, `guests`, `event_type`) 
          VALUES (NULL, '$deptId', '$seminar_hall_id', '$title', '$subject', '$organizerName', '$from', 
-         '$to', '$description', 'Approved', '$accessories')";
+         '$to', '$description', 'Approved', '$accessories', '$guests', '$eventType')";
         if (mysqli_query($con, $insert_query)) {
         ?>
             <script>

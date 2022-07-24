@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jul 22, 2022 at 04:16 PM
+-- Generation Time: Jul 24, 2022 at 01:21 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -43,8 +43,9 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   `images` text,
   `cancellation_reason` text,
   `accessories` text,
+  `event_type` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -59,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `departments` (
   `department_name` varchar(100) NOT NULL,
   PRIMARY KEY (`deptId`) USING BTREE,
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `seminar_halls` (
   `hall_name` varchar(100) NOT NULL,
   `hall_description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -104,9 +105,9 @@ CREATE TABLE IF NOT EXISTS `students_list` (
   `deptId` varchar(100) NOT NULL,
   `sem` int(11) NOT NULL,
   `password` varchar(100) NOT NULL DEFAULT '12345',
-  `mobile_number` double NOT NULL,
+  `mobile_number` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -121,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(100) NOT NULL DEFAULT '12345',
   PRIMARY KEY (`id`),
   KEY `users_ibfk_1` (`deptId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Constraints for dumped tables
