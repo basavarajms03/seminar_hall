@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
     $deptName = $_POST['departmentName'];
     $result = mysqli_query($con, "SELECT * FROM `departments` WHERE `deptId`=$deptId") or die(mysqli_error($con));
     $department_count = mysqli_num_rows($result);
-    if ($department_count > 0) {
+    if ($department_count > 0 && $row[1] !== $deptId) {
 ?>
         <script>
             alert('Department is already exist!');

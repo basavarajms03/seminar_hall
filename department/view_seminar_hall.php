@@ -241,6 +241,10 @@ if (isset($_POST['upload'])) {
 
     $imagesInfo = array();
 
+    if ($row[11]) {
+        array_push($imagesInfo, implode(',', $images));
+    }
+
     // Count total files
     $countfiles = count($_FILES['images']['name']);
 
@@ -259,6 +263,7 @@ if (isset($_POST['upload'])) {
     $query = "UPDATE `bookings` SET `images` = '$images' WHERE `bookings`.`id` = $_GET[id]";
 
     if (mysqli_query($con, $query)) {
+
 ?>
         <script>
             alert("Files has been uploaded!");
@@ -266,6 +271,7 @@ if (isset($_POST['upload'])) {
         </script>
     <?php
     } else {
+
     ?>
         <script>
             alert("Something went wrong!");
