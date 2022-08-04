@@ -93,12 +93,6 @@ $images = explode(',', $row[11]);
                     </div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12">
-                        <p class="text-title mb-1 font-weight-bold text-secondary">Status</p>
-                        <p class="text-warning m-0 font-weight-bold"><?php echo $row[10]; ?></p>
-                    </div>
-                </div>
-                <div class="row mt-3">
                     <div class="col-md-4">
                         <p class="text-title mb-1 font-weight-bold text-secondary">From</p>
                         <p class="text-muted m-0"><?php echo date_format(date_create($row[6]), "Y-m-d h:i A"); ?></p>
@@ -126,12 +120,6 @@ $images = explode(',', $row[11]);
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-12">
-                        <p class="text-title mb-1 font-weight-bold text-secondary">Accessories</p>
-                        <p class="text-muted m-0"><?php echo $row[13]; ?></p>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-12">
                         <p class="text-title mb-1 font-weight-bold text-secondary">Description</p>
                         <p class="text-muted m-0"><?php echo $row[9]; ?></p>
                     </div>
@@ -145,9 +133,16 @@ $images = explode(',', $row[11]);
                             <div class="image-thumbnails">
                                 <?php
                                 for ($i = 0; $i < count($images); $i++) {
+                                    if (explode('.', $images[$i])[1] !== 'pdf') {
                                 ?>
-                                    <img class="uploaded-images" src="./../<?php echo $images[$i]; ?>" alt="" />
+                                        <img class="uploaded-images" src="./<?php echo $images[$i]; ?>" alt="" />
+                                    <?php
+                                    } else { ?>
+                                        <div>
+                                            <embed src="./<?php echo $images[$i]; ?>" width="800px" height="2100px" />
+                                        </div>
                                 <?php
+                                    }
                                 }
                                 ?>
                             </div>

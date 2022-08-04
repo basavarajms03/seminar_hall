@@ -121,7 +121,7 @@ if (isset($_GET['check_available'])) {
                                 <option value="Chairs">Chairs</option>
                                 <option value="Projector">Projector</option>
                                 <option value="System">System</option>
-                                <option value="Water Bottles">Water Bottles</option>
+                                <option value="Mic">Mic</option>
                             </select>
                         </div>
                     </div>

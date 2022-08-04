@@ -38,13 +38,17 @@ $feedback_count = mysqli_num_rows($feedback_result);
 <body>
     <div class="container-fluid">
         <div class="row mt-3">
-            <div class="col-md-8">
+            <div class="col-md-4">
                 <p class="page-title font-weight-bold text-success m-0">My Bookings</p>
                 <p class="page-subTitle text-danger font-weight-bold">My Bookings Details</p>
             </div>
             <div class="col-md-4 text-center">
                 <p class="page-title font-weight-bold text-success m-0">Title: <?php echo $row[3]; ?></p>
                 <p title="<?php echo $row[4]; ?>" class="page-subTitle text-truncate text-danger font-weight-bold">Sub Title: <?php echo $row[4]; ?></p>
+            </div>
+            <div class="col-md-4 text-right">
+                <a href="./invite_letter.php?id=<?php echo $_GET['id']; ?>" class="btn btn-outline-danger">Invite</a>
+                <a href="./appreciation_letter.php?id=<?php echo $_GET['id']; ?>" class="btn btn-outline-success">Appreciation</a>
             </div>
         </div>
         <div class="row">
@@ -126,9 +130,17 @@ $feedback_count = mysqli_num_rows($feedback_result);
                             <div class="image-thumbnails">
                                 <?php
                                 for ($i = 0; $i < count($images); $i++) {
+                                    if (explode('.', $images[$i])[1] !== 'pdf') {
                                 ?>
-                                    <img class="uploaded-images" src="./../<?php echo $images[$i]; ?>" alt="" />
+                                        <img class="uploaded-images" src="./../<?php echo $images[$i]; ?>" alt="" />
+                                    <?php
+                                    } else { ?>
+                                        <div>
+                                            <object data="./../<?php echo $images[$i]; ?>" type="application/pdf" width="100%" height="200">
+                                            </object>
+                                        </div>
                                 <?php
+                                    }
                                 }
                                 ?>
                             </div>
@@ -151,7 +163,7 @@ $feedback_count = mysqli_num_rows($feedback_result);
                                         <span class="input-group-text">Upload</span>
                                     </div>
                                     <div class="custom-file">
-                                        <input type="file" name="images[]" accept="image/png, image/gif, image/jpeg" class="custom-file-input" id="inputGroupFile01" multiple>
+                                        <input type="file" name="images[]" accept="image/png, image/gif, image/jpeg, application/pdf" class="custom-file-input" id="inputGroupFile01" multiple>
                                         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                     </div>
                                 </div>
@@ -249,7 +261,7 @@ if (isset($_POST['upload'])) {
     if (mysqli_query($con, $query)) {
 ?>
         <script>
-            alert("Images has been uploaded!");
+            alert("Files has been uploaded!");
             document.location = "./view_seminar_hall.php?id=<?php echo $_GET['id'] ?>";
         </script>
     <?php

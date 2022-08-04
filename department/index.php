@@ -50,12 +50,14 @@ if (isset($_POST['submit'])) {
     $username = $_POST['deptId'];
     $password = $_POST['password'];
     $check_query = "SELECT * FROM  `users` WHERE `deptId` = $username AND `password` = $password";
+    $check_query1 = mysqli_query($con, "SELECT * FROM  `departments` WHERE `deptId` = '$username'");
     $check_result = mysqli_query($con, $check_query);
     $check_count = mysqli_num_rows($check_result);
     $check_rows = mysqli_fetch_array($check_result);
     if ($check_count > 0) {
         session_start();
         $_SESSION['deptId'] = $username;
+        $_SESSION['userData'] = mysqli_fetch_array($check_query1);
 ?>
         <script>
             alert('Logged in successfully!');
