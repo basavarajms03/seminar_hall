@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 04, 2022 at 05:26 PM
+-- Generation Time: Aug 06, 2022 at 05:49 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -42,15 +42,17 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   `cancellation_reason` text,
   `accessories` text,
   `event_type` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+  UNIQUE KEY `id_2` (`id`),
+  KEY `deptId` (`deptId`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `bookings`
 --
 
 INSERT INTO `bookings` (`id`, `deptId`, `seminar_hall_id`, `title`, `subTitle`, `organizerName`, `from_date`, `to_date`, `guests`, `description`, `status`, `images`, `cancellation_reason`, `accessories`, `event_type`) VALUES
-(8, 1234, 7, 'Yoga and Its ', 'Yoga information and subject details', 'Computer Science', '2022-08-02 12:29:00', '2022-08-03 12:30:00', 'Sri Srinivas D', 'We are heartly welcome you to the above subject for the yoga and reference. Thank you.', 'Approved', 'uploads/Exam Application Fees Paid.pdf', NULL, 'Tables,Chairs', 'Other');
+(8, 1234, 7, 'Yoga and Its ', 'Yoga information and subject details', 'Computer Science', '2022-08-02 12:29:00', '2022-08-03 12:30:00', 'Sri Srinivas D', 'We are heartly welcome you to the above subject for the yoga and reference. Thank you.', 'Approved', 'uploads/Exam Application Fees Paid.pdf', NULL, 'Tables,Chairs', 'Other'),
+(9, 12345, 7, 'Something Titla', 'Subject', 'Organizer Name', '2022-08-02 22:43:00', '2022-08-02 22:43:00', 'Seminar Infor', 'Description\r\n', 'Approved', 'uploads/DocScanner 01-Aug-2022 12-09 pm.jpg', NULL, 'Tables,Chairs', 'Seminar');
 
 -- --------------------------------------------------------
 
@@ -71,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `departments` (
 --
 
 INSERT INTO `departments` (`id`, `deptId`, `department_name`) VALUES
-(8, 1234, 'Computer Science');
+(8, 12345, 'Computer');
 
 -- --------------------------------------------------------
 
@@ -83,8 +85,20 @@ CREATE TABLE IF NOT EXISTS `feedback` (
   `booking_id` int(11) NOT NULL,
   `feedback` text NOT NULL,
   `student_id` varchar(11) NOT NULL,
-  `updated_value` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `updated_value` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `1st` varchar(30) NOT NULL,
+  `2nd` varchar(30) NOT NULL,
+  `3rd` varchar(30) NOT NULL,
+  `4th` varchar(30) NOT NULL,
+  `5th` varchar(30) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`booking_id`, `feedback`, `student_id`, `updated_value`, `1st`, `2nd`, `3rd`, `4th`, `5th`) VALUES
+(9, 'No more information.', '202', '2022-08-06 03:08:23', 'Extremely Helpful', 'Yes', 'No', 'No', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -122,15 +136,15 @@ CREATE TABLE IF NOT EXISTS `students_list` (
   `password` varchar(100) NOT NULL DEFAULT '12345',
   `mobile_number` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `students_list`
 --
 
 INSERT INTO `students_list` (`id`, `roll_no`, `student_name`, `student_email`, `deptId`, `sem`, `password`, `mobile_number`) VALUES
-(13, '202CS12013', 'Basavaraj Sangur', 'basavaraj@gmail.com', '1234', 1, '12345', 9739170220),
-(14, '202CS12012', 'Shreya', 'S@gmail.com', '1234', 3, '12345', NULL);
+(15, '202', 'aasa', 'sasa', '12345', 1, '12345', NULL),
+(16, '203', 'sasasa', 'sasas', '12345', 2, '12345', NULL);
 
 -- --------------------------------------------------------
 
@@ -151,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `deptId`, `password`) VALUES
-(9, 1234, '1234');
+(9, 12345, 'cs123');
 
 --
 -- Constraints for dumped tables

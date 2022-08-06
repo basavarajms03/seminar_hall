@@ -49,6 +49,7 @@ $feedback_count = mysqli_num_rows($feedback_result);
             <div class="col-md-4 text-right">
                 <a href="./invite_letter.php?id=<?php echo $_GET['id']; ?>" class="btn btn-outline-danger">Invite</a>
                 <a href="./appreciation_letter.php?id=<?php echo $_GET['id']; ?>" class="btn btn-outline-success">Appreciation</a>
+                <a href="./view_feedbacks.php?id=<?php echo $_GET['id']; ?>" class="btn btn-outline-warning">View Feedbacks</a>
             </div>
         </div>
         <div class="row">

@@ -142,8 +142,89 @@ $feedback_count = mysqli_num_rows($feedback_result);
                         <div class="card-header text-success font-weight-bold text-center">Student Feedback</div>
                         <div class="card-body">
                             <form action="" method="post">
-                                <div class="form-group">
-                                    <label for="Feedback">Feedback</label>
+                                <div class="question1">
+                                    <p>1. How helpful was the event?</p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="question1" id="extreme" value="Extremely Helpful">
+                                        <label class="form-check-label" for="extreme">
+                                            Extremely Helpful
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="question1" id="very" value="Very Helpful">
+                                        <label class="form-check-label" for="very">
+                                            Very Helpful
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="question1" id="notatall" value="Not at all Helpful">
+                                        <label class="form-check-label" for="notatall">
+                                            Not at all Helpful
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="question1 mt-3">
+                                    <p>2. Did the event help you with new learnings or knowledge?</p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="question2" id="yes" value="Yes">
+                                        <label class="form-check-label" for="yes">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="question2" id="no" value="No">
+                                        <label class="form-check-label" for="no">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="question1 mt-3">
+                                    <p>3. The workshop content was relevent and easy to understand?</p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="question3" id="yes1" value="Yes">
+                                        <label class="form-check-label" for="yes1">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="question3" id="no1" value="No">
+                                        <label class="form-check-label" for="no1">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="question1 mt-3">
+                                    <p>4. The facilatators were well prepared and responsive to participants questions?</p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="question4" id="yes2" value="Yes">
+                                        <label class="form-check-label" for="yes2">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="question4" id="no2" value="No">
+                                        <label class="form-check-label" for="no2">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="question1 mt-3">
+                                    <p>5. The material was presented in an organized manner?</p>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="question5" id="yes3" value="Yes">
+                                        <label class="form-check-label" for="yes3">
+                                            Yes
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="question5" id="no2" value="No">
+                                        <label class="form-check-label" for="no2">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <label for="Feedback">Please share any additional comments</label>
                                     <textarea name="feedback" class="form-control" id="" cols="30" rows="10"></textarea>
                                 </div>
                                 <div class="text-right">
@@ -172,10 +253,12 @@ $feedback_count = mysqli_num_rows($feedback_result);
                                     </div>
                                     <div class="col-md-11">
                                         <p class="m-0">
-                                            <small class="font-weight-bold text-success"><?php echo $row[19]; ?></small>
+                                            <small class="font-weight-bold text-success"><?php echo $row[26]; ?></small>
                                         </p>
                                         <p class="m-0">
-                                            <small class="text-muted font-weight-bold"><?php echo $row[3]; ?></small>
+                                            <small class="text-muted font-weight-bold">
+                                                <?php echo date_format(date_create($row[3]), "d-m-Y h:i A"); ?>
+                                            </small>
                                         </p>
                                         <p><?php echo $row[1]; ?></p>
                                     </div>
@@ -196,13 +279,13 @@ $feedback_count = mysqli_num_rows($feedback_result);
 <?php
 
 if (isset($_POST['submit_feedback'])) {
-    $query = "INSERT INTO `feedback` (`booking_id`, `feedback`, `student_id`) 
-    VALUES ($_GET[id], '$_POST[feedback]', $rollNo)";
+    $query = "INSERT INTO `feedback` (`booking_id`, `feedback`, `student_id`, `1st`, `2nd`, `3rd`, `4th`, `5th`) 
+    VALUES ($_GET[id], '$_POST[feedback]', '$rollNo', '$_POST[question1]', '$_POST[question2]', '$_POST[question3]', '$_POST[question4]', '$_POST[question5]')";
     if (mysqli_query($con, $query)) {
 ?>
         <script>
             alert("Feedback has been submitted successfully!");
-            document.location = "./feedback.php?id=4";
+            document.location = "./feedback.php?id=<?php echo $_GET['id']; ?>";
         </script>
 <?php
     } else {
