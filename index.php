@@ -71,14 +71,6 @@ $completed_count = mysqli_num_rows($completed_result);
     </nav>
     <!-- Carousel -->
     <div id="demo" class="carousel slide" data-bs-ride="carousel">
-
-        <!-- Indicators/dots -->
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-        </div>
-
         <!-- The slideshow/carousel -->
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -87,29 +79,31 @@ $completed_count = mysqli_num_rows($completed_result);
             <div class="carousel-item">
                 <img src="./images/slider/2.jpg" alt="Chicago" class="d-block slider-img" style="width:100%">
             </div>
-            <div class="carousel-item">
-                <img src="./images/slider/3.jpg" alt="New York" class="d-block slider-img" style="width:100%">
-            </div>
         </div>
     </div>
     <div class="mt-5 container" id="about">
-        <h4 class="text-center font-weight-bold text-black">About</h4>
-        <div class="row">
-            <div class="col-md-6">
-                <img src="./images/about.png" width="100%">
-            </div>
-            <div class="col-md-6 p-5">
-                Lorem ipsum dolor sit amet. Aut alias magni sed nobis hic aliquid exercitationem.
-                Sed amet exercitationem ea perspiciatis nihil ea blanditiis molestias ut maxime labore
-                et eius Quis aut libero adipisci sed corporis tempora. Non officiis alias At itaque provident
-                in repellendus ipsum non dolor earum eum dolor internos qui voluptas facilis eum omnis amet.
-                Vel aperiam voluptas rem facilis error ut repellendus pariatur qui labore
-                voluptatum qui reiciendis provident sed commodi esse et impedit adipisci. Sed reiciendis alias ut
-                natus voluptates et quia doloribus?
-                Aut quia quia rem dolorum sint vel omnis eligendi
-                a quia accusantium qui deserunt nihil vel officiis quis id reprehenderit consequatur.
-                Et nihil maxime sit aliquid deleniti non natus fuga eum omnis consequatur et unde corrupti
-                est obcaecati tempore nam debitis rerum.
+            <h3 class="text-danger mb-5 text-center font-weight-bold" id="about">About Us</h3>
+            <div class="row">
+                <div class="col-md-7">
+                    <img src="./images/about-college.jpg" alt="About College" width="100%" height="100%">
+                </div>
+                <div class="col-md-5">
+                    <p>The Institute T.M.A.E'S Polytechnic which is dedicated to the achievement
+                        of excellence in the technical field was established in the year 1983.
+                        The institution is situated in a lush green campus which is spread over
+                        an area of 5 acres on the out skirts of Hospet in Karnataka state.</p>
+                    <p class="font-weight-bold">Vision</p>
+                    <p>“Empowering youth by imparting quality technical education and strive to
+                        prepare students with excellent technical skills"</p>
+                    <p class="font-weight-bold">Mission</p>
+                    <ul class="style-none">
+                        <li>To offer value added quality technical education &
+                            excellent academic training to our students.</li>
+                        <li>To provide state of art infrastructure with latest facilities.</li>
+                        <li>To strengthen industry institute interaction.</li>
+                        <li>To make continual improvement in all institutional activities.</li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="mt-5 mb-5" id="upcoming_seminars">
@@ -135,9 +129,9 @@ $completed_count = mysqli_num_rows($completed_result);
                                 <div class="card-header font-weight-bold text-success">
                                     <div class="row">
                                         <div class="col-md-8">
-                                            <?php echo $row[19]; ?> <?php echo $row[8] ? '- ' . $row[8] : ''; ?>
+                                            <?php echo $row[20]; ?> <?php echo $row[8] ? '- ' . $row[8] : ''; ?>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 text-right">
                                             <a href="./seminar_details.php?id=<?php echo $row[0]; ?>" class="badge badge-primary">View</a>
                                         </div>
                                     </div>
@@ -146,7 +140,7 @@ $completed_count = mysqli_num_rows($completed_result);
                                     <h5 class="card-title mb-0"><?php echo $row[3]; ?></h5>
                                     <small class="card-subtitle font-weight-bold text-muted"><?php echo $row[4]; ?></small><br>
                                     <small class="card-subtitle font-weight-bold text-danger"><?php echo date_format(date_create($row[6]), "Y-m-d h:i A"); ?> - <?php echo date_format(date_create($row[7]), "Y-m-d h:i A"); ?></small>
-                                    <p><small class="card-subtitle font-weight-bold text-warning"><?php echo $row[17]; ?> - <?php echo $row[14]; ?></small></p>
+                                    <p><small class="card-subtitle font-weight-bold text-warning"><?php echo $row[18]; ?> - <?php echo $row[14]; ?></small></p>
                                     <p class="card-text mt-3"><?php echo $row[9]; ?></p>
                                 </div>
                             </div>

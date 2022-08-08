@@ -148,6 +148,21 @@ if (isset($_GET['check_available'])) {
                             <small class="text-muted">Enter the name of the lecturer or N/A.</small>
                         </div>
                     </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="sem">Select Semester</label>
+                            <select class="form-control" id="sem" name="sem" required>
+                                <option value="">--Semester--</option>
+                                <option value="All">All</option>
+                                <option value="1st">1st Sem</option>
+                                <option value="2nd">2nd Sem</option>
+                                <option value="3rd">3rd Sem</option>
+                                <option value="4th">4th Sem</option>
+                                <option value="5th">5th Sem</option>
+                                <option value="6th">6th Sem</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-md-4">
@@ -184,6 +199,7 @@ if (isset($_POST['submit'])) {
     $description = $_POST['description'];
     $guests = $_POST['guestLecturerName'];
     $eventType = $_POST['eventType'];
+    $sem = $_POST['sem'];
 
     $result = mysqli_query($con, "SELECT * FROM `bookings` WHERE `seminar_hall_id` = '$seminar_hall_id' and `from_date` = '$from' and `to_date`='$to'") or die(mysqli_error($con));
     $booking_hall_count = mysqli_num_rows($result);
@@ -197,9 +213,9 @@ if (isset($_POST['submit'])) {
     } else {
         $insert_query = "INSERT INTO `bookings` 
         (`id`, `deptId`, `seminar_hall_id`, `title`, `subTitle`, `organizerName`, `from_date`,
-         `to_date`, `description`, `status`, `accessories`, `guests`, `event_type`) 
+         `to_date`, `description`, `status`, `accessories`, `guests`, `event_type`, `sem`) 
          VALUES (NULL, '$deptId', '$seminar_hall_id', '$title', '$subject', '$organizerName', '$from', 
-         '$to', '$description', 'Approved', '$accessories', '$guests', '$eventType')";
+         '$to', '$description', 'Approved', '$accessories', '$guests', '$eventType', '$sem')";
         if (mysqli_query($con, $insert_query)) {
         ?>
             <script>

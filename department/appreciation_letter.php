@@ -60,7 +60,8 @@ $feedback_count = mysqli_num_rows($feedback_result);
         </div>
         <div class="mt-3">
             <p class="mb-0">To,</p>
-            <p class="font-weight-bold"><?php echo $row[8]; ?></p>
+            <p class="font-weight-bold mb-0"><?php echo $row[8]; ?></p>
+            <textarea cols="20" rows="3" style="border: none;"></textarea>
         </div>
         <div class="mt-3">
             <p>Sir,</p>
@@ -88,7 +89,7 @@ $feedback_count = mysqli_num_rows($feedback_result);
 
 </html>
 
-<script>
+<!-- <script>
     document.addEventListener('onload', printInfo());
 
     function printInfo() {
@@ -97,4 +98,4 @@ $feedback_count = mysqli_num_rows($feedback_result);
             window.location.href = './my_bookings.php'
         };
     }
-</script>
+</script> -->

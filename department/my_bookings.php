@@ -17,7 +17,7 @@ $seminar_hall_count = mysqli_num_rows($result);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Seminar Hall</title>
+    <title>Department - Seminar Hall</title>
 </head>
 
 <body>
@@ -60,7 +60,7 @@ $seminar_hall_count = mysqli_num_rows($result);
                         ?>
                             <tr>
                                 <th scope="row"><?php echo $count; ?></th>
-                                <td><?php echo $row[16]; ?></td>
+                                <td><?php echo $row[17]; ?></td>
                                 <td><?php echo $row[3]; ?></td>
                                 <td><?php echo $row[4]; ?></td>
                                 <td><?php echo date_format(date_create($row[6]), "Y-m-d h:i A"); ?></td>

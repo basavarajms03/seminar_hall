@@ -60,13 +60,14 @@ $feedback_count = mysqli_num_rows($feedback_result);
         </div>
         <div class="mt-3">
             <p class="mb-0">To,</p>
-            <p class="font-weight-bold"><?php echo $row[8]; ?></p>
+            <p class="font-weight-bold mb-0"><?php echo $row[8]; ?></p>
+            <textarea cols="20" rows="3" style="border: none;"></textarea>
         </div>
         <div class="mt-3">
             <p>Sir,</p>
             <p class="font-weight-bold">Sub: Invite For <?php echo $row[3]; ?> - Requested</p>
             <p>With reference to the above subject, we are honored and pleased to invite you to
-                our institution to give presentation on <span class="font-weight-bold"><?php echo $row[3]; ?></span> for our diploma in <?php echo  $_SESSION['userData'][2]; ?> and Engineering
+                our institution to give presentation on <span class="font-weight-bold"><?php echo $row[3]; ?></span> for our <?php echo $row[15]; ?> Semester diploma in <?php echo  $_SESSION['userData'][2]; ?> and Engineering
                 students on <span class="font-weight-bold"><?php echo date_format(date_create($row[6]), 'Y.m.d'); ?></span>.
             </p>
             <p>In this regard we would like to request you to accept our invitaion and look forward to have a positive confirmation.
@@ -84,7 +85,7 @@ $feedback_count = mysqli_num_rows($feedback_result);
 
 </html>
 
-<script>
+<!-- <script>
     document.addEventListener('onload', printInfo());
 
     function printInfo() {
@@ -93,4 +94,4 @@ $feedback_count = mysqli_num_rows($feedback_result);
             window.location.href = './my_bookings.php'
         };
     }
-</script>
+</script> -->

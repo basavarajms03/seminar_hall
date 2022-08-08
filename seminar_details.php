@@ -105,7 +105,7 @@ $images = explode(',', $row[11]);
                 <div class="row mt-3">
                     <div class="col-md-4">
                         <p class="text-title mb-1 font-weight-bold text-danger">Seminar Hall Name</p>
-                        <p class="m-0 text-success font-weight-bold"><?php echo $row[16]; ?></p>
+                        <p class="m-0 text-success font-weight-bold"><?php echo $row[17]; ?></p>
                     </div>
                     <?php
                     if ($row[14] === 'Guest Lecturer') {

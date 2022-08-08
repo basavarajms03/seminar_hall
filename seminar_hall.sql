@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 06, 2022 at 05:49 AM
+-- Generation Time: Aug 08, 2022 at 05:43 AM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -42,17 +42,20 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   `cancellation_reason` text,
   `accessories` text,
   `event_type` varchar(100) NOT NULL,
+  `sem` varchar(30) NOT NULL,
   UNIQUE KEY `id_2` (`id`),
   KEY `deptId` (`deptId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `bookings`
 --
 
-INSERT INTO `bookings` (`id`, `deptId`, `seminar_hall_id`, `title`, `subTitle`, `organizerName`, `from_date`, `to_date`, `guests`, `description`, `status`, `images`, `cancellation_reason`, `accessories`, `event_type`) VALUES
-(8, 1234, 7, 'Yoga and Its ', 'Yoga information and subject details', 'Computer Science', '2022-08-02 12:29:00', '2022-08-03 12:30:00', 'Sri Srinivas D', 'We are heartly welcome you to the above subject for the yoga and reference. Thank you.', 'Approved', 'uploads/Exam Application Fees Paid.pdf', NULL, 'Tables,Chairs', 'Other'),
-(9, 12345, 7, 'Something Titla', 'Subject', 'Organizer Name', '2022-08-02 22:43:00', '2022-08-02 22:43:00', 'Seminar Infor', 'Description\r\n', 'Approved', 'uploads/DocScanner 01-Aug-2022 12-09 pm.jpg', NULL, 'Tables,Chairs', 'Seminar');
+INSERT INTO `bookings` (`id`, `deptId`, `seminar_hall_id`, `title`, `subTitle`, `organizerName`, `from_date`, `to_date`, `guests`, `description`, `status`, `images`, `cancellation_reason`, `accessories`, `event_type`, `sem`) VALUES
+(8, 1234, 7, 'Yoga and Its ', 'Yoga information and subject details', 'Computer Science', '2022-08-02 12:29:00', '2022-08-03 12:30:00', 'Sri Srinivas D', 'We are heartly welcome you to the above subject for the yoga and reference. Thank you.', 'Approved', 'uploads/Exam Application Fees Paid.pdf', NULL, 'Tables,Chairs', 'Other', ''),
+(9, 12345, 7, 'Something Titla', 'Subject', 'Organizer Name', '2022-08-02 22:43:00', '2022-08-02 22:43:00', 'Seminar Infor', 'Description\r\n', 'Approved', 'uploads/DocScanner 01-Aug-2022 12-09 pm.jpg', NULL, 'Tables,Chairs', 'Seminar', ''),
+(10, 12345, 7, 'Title informaion', 'Subject', 'Orgnizer Name', '2022-08-07 18:07:00', '2022-08-07 18:07:00', 'Seminar lecturer', 'No more informtion', 'Approved', NULL, NULL, '', 'Seminar', '1st'),
+(11, 12345, 7, 'assasa', 'assdasa', 'adadsadss', '2022-08-08 07:37:00', '2022-08-08 08:38:00', 'gfgdfgdgf', 'yghjgjhgj jg gjhgjhgj  ', 'Approved', NULL, NULL, 'Chairs', 'Seminar', '1st');
 
 -- --------------------------------------------------------
 

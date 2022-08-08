@@ -25,7 +25,7 @@ $feedback_count = mysqli_num_rows($feedback_result);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Department - Booking Deatils</title>
+    <title>Student - Booking Deatils</title>
     <style>
         .avatar {
             width: 50px;
@@ -86,7 +86,7 @@ $feedback_count = mysqli_num_rows($feedback_result);
                 <div class="row mt-3">
                     <div class="col-md-4">
                         <p class="text-title mb-1 font-weight-bold text-danger">Seminar Hall Name</p>
-                        <p class="m-0 text-success font-weight-bold"><?php echo $row[16]; ?></p>
+                        <p class="m-0 text-success font-weight-bold"><?php echo $row[17]; ?></p>
                     </div>
                     <?php
                     if ($row[14] === 'Guest Lecturer') {
@@ -251,9 +251,9 @@ $feedback_count = mysqli_num_rows($feedback_result);
                                     <div class="col-md-1">
                                         <img class="avatar" src="./../images/avatar.png" alt="Avatar" />
                                     </div>
-                                    <div class="col-md-11">
+                                    <div class="col-md-11 pl-4">
                                         <p class="m-0">
-                                            <small class="font-weight-bold text-success"><?php echo $row[26]; ?></small>
+                                            <small class="font-weight-bold text-success"><?php echo $row[27] . ' ' . $row[28]; ?></small>
                                         </p>
                                         <p class="m-0">
                                             <small class="text-muted font-weight-bold">
