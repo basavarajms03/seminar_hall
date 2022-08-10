@@ -236,39 +236,6 @@ $feedback_count = mysqli_num_rows($feedback_result);
                 <?php
                 }
                 ?>
-                <div class="card border-danger mt-3">
-                    <div class="card-header text-danger font-weight-bold text-center">Feedback</div>
-                    <div class="card-body">
-                        <?php
-                        if ($feedback_count === 0) {
-                        ?>
-                            <p class="text-danger">No Feedback has been added.</p>
-                            <?php
-                        } else {
-                            while ($row = mysqli_fetch_array($feedback_result)) {
-                            ?>
-                                <div class="row mt-3">
-                                    <div class="col-md-1">
-                                        <img class="avatar" src="./../images/avatar.png" alt="Avatar" />
-                                    </div>
-                                    <div class="col-md-11 pl-4">
-                                        <p class="m-0">
-                                            <small class="font-weight-bold text-success"><?php echo $row[27] . ' ' . $row[28]; ?></small>
-                                        </p>
-                                        <p class="m-0">
-                                            <small class="text-muted font-weight-bold">
-                                                <?php echo date_format(date_create($row[3]), "d-m-Y h:i A"); ?>
-                                            </small>
-                                        </p>
-                                        <p><?php echo $row[1]; ?></p>
-                                    </div>
-                                </div>
-                        <?php
-                            }
-                        }
-                        ?>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

@@ -31,8 +31,8 @@ $student_row = mysqli_fetch_array($result);
             <div class="row mt-3">
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="rollNo">Student Roll No</label>
-                        <input type="text" value="<?php echo $student_row[1] ?>" class="form-control" name="rollNo" id="rollNo" placeholder="Roll No" required>
+                        <label for="rollNo">Student Register No</label>
+                        <input type="text" value="<?php echo $student_row[1] ?>" class="form-control" name="rollNo" id="rollNo" placeholder="Register No" required>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -81,7 +81,7 @@ if (isset($_POST['submit'])) {
     if ($count > 0) {
 ?>
         <script>
-            alert('Student is already exist in the entered roll no!');
+            alert('Student is already exist in the entered Register No!');
             document.location = './students_list.php';
         </script>
         <?php

@@ -64,7 +64,7 @@ if (isset($_GET['sem'])) {
                     <thead>
                         <tr class="bg-danger text-light">
                             <th scope="col">#</th>
-                            <th scope="col">Roll No</th>
+                            <th scope="col">Register No</th>
                             <th scope="col">Student Id</th>
                             <th scope="col">Student Name</th>
                             <th scope="col">Semester</th>

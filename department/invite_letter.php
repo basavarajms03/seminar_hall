@@ -38,6 +38,9 @@ $feedback_count = mysqli_num_rows($feedback_result);
 <body>
     <div class="container-fluid">
         <div class="col-md-12 mx-auto">
+            <div class="col-md-12 mt-3 text-right">
+                <button class="btn btn-outline-danger" id="printBtn" onclick="printInfo()">Print</button>
+            </div>
             <div class="row">
                 <div class="col-md-2">
                     <img src="../images/1568389948615.jpg" width="100%" />
@@ -85,13 +88,11 @@ $feedback_count = mysqli_num_rows($feedback_result);
 
 </html>
 
-<!-- <script>
-    document.addEventListener('onload', printInfo());
-
+<script>
     function printInfo() {
         window.print();
         window.onafterprint = function(event) {
-            window.location.href = './my_bookings.php'
+            window.location.href = './students_list.php'
         };
     }
-</script> -->
+</script>
